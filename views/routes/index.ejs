@@ -1,0 +1,35 @@
+<% layout('./boilerplate') -%>
+<div class="text-white flex flex-col w-full h-auto md:px-5 py-2">
+
+    <table class="w-full font-bold text-center">
+
+        <thead class="md:text-xl">
+            <tr>
+                <td>Date</td>
+                <td>Title</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+
+        <% if(allPosts.length > 0) { %>
+            <tbody class="border border-zinc-800">
+                <% allPosts.reverse().forEach(function(post) { %>
+                    <% formatedDate = post.date.toLocaleDateString('en-GB') %>
+                    <tr>
+                        <td><%= formatedDate %></td>
+                        <td><%= post.title %></td>
+                        <td><a href="/viewNote/<%= post._id %>" class="btn btn-accent btn-xs">View</a></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        <% } else { %>
+            <tbody>
+                <tr>
+                    <td colspan="3" class="text-white">No Post's Yet!</td>
+                </tr>
+            </tbody>
+        <% } %>
+
+    </table>
+
+</div>

@@ -1,0 +1,13 @@
+<% layout('./boilerplate') -%>
+<div class=" py-8 px-8 mt-5 rounded-md  bg-slate-800 md:w-1/2">
+    <form class="flex flex-col" action="/notes/create" method="post">
+        <label class="text-xl" for="Title">Title:</label>
+        <input class="py-2 px-2 rounded-md w-72" type="text" name="title" placeholder="Type Here"><br>
+        <label class="text-xl" for="notes">Notes:</label>
+        <textarea class="py-1 px-2 rounded-md resize-none" type="text" name="note" placeholder="What's on your mind ?"></textarea>
+        <div class="buttons flex justify-between mt-2">
+            <input class="btn btn-accent btn-sm w-20" type="submit" value="Save">    
+            <a class="btn glass btn-sm" href="/dashboard">Cancel</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,65 @@
+<!-- <div class="navbar bg-zinc-800 relative flex justify-between items-center px-16 py-2">
+
+    <div class="start text-white text-xl"><strong><i>N</i></strong>otes</div>
+
+    <div class="center">
+        <a href="/notes/create" class="btn btn-accent btn-sm ">New Notes</a>
+    </div>
+
+    <div class="end">
+        <a class="text-red-500 font-bold mr-3" href="/logout">LogOut</a>
+        <img src="<%= profilePic %>" class="rounded-full object-cover w-10 h-10" alt="">
+    </div>
+</div> -->
+
+
+
+<div class="navbar bg-zinc-800 relative flex justify-between items-center md:px-16 sm:px-1 py-2">
+    <!-- Start Section -->
+    <div class="start text-white text-xl">
+        <strong><i>N</i></strong>otes
+    </div>
+
+    <!-- Center Section -->
+    <div class="center">
+        <a href="/notes/create" class="btn btn-accent btn-sm">New Notes</a>
+    </div>
+
+    <!-- End Section (Profile Picture & Logout) -->
+    <div class="end flex items-center">
+        <a class="text-red-500 font-bold mr-3" href="/logout">LogOut</a>
+        <img src="data:image/jpeg;base64,<%= profilePic.toString('base64') %>" id="profilePic" class="rounded-full object-cover w-10 h-10 cursor-pointer" alt="Profile Picture">
+    </div>
+</div>
+
+<!-- Modal for Profile Picture Preview -->
+<div id="profileModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div class="relative bg-zinc-900 p-4 rounded-lg">
+        <button id="closeModal" class="absolute top-2 right-2 text-white text-2xl">&times;</button>
+        <img src="data:image/jpeg;base64,<%= profilePic.toString('base64') %>" class="w-60 h-60 rounded-full object-cover">
+    </div>
+</div>
+
+<!-- JavaScript for Modal -->
+<script>
+    const profilePic = document.getElementById('profilePic');
+    const profileModal = document.getElementById('profileModal');
+    const closeModal = document.getElementById('closeModal');
+
+    // Show the modal when the profile picture is clicked
+    profilePic.addEventListener('click', () => {
+        profileModal.classList.remove('hidden');
+    });
+
+    // Close the modal when the close button is clicked
+    closeModal.addEventListener('click', () => {
+        profileModal.classList.add('hidden');
+    });
+
+    // Close the modal when clicking outside the image
+    profileModal.addEventListener('click', (e) => {
+        if (e.target === profileModal) {
+            profileModal.classList.add('hidden');
+        }
+    });
+</script>
