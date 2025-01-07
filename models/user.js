@@ -1,6 +1,14 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://127.0.0.1:27017/notesApplication");
+// mongoose.connect("mongodb://127.0.0.1:27017/notesApplication");
+mongoose.connect(process.env.DB_CONNECTION)
+.then(function(){
+    console.log("connected to database");
+})
+.catch(function(err){
+    console.log(err);
+})
 
 const userSchema = mongoose.Schema({
     name: String,
