@@ -89,6 +89,7 @@ app.post('/user/create', upload.single("picture"), async function (req, res) {
         console.log("Email already exists enter differenct email and try again");
         return res.redirect('/');
     } 
+
 try {
     bcrypt.genSalt(10, function (err, salt) {
         bcrypt.hash(password, salt, async function (err, hash) {
